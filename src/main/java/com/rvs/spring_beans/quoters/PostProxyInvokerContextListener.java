@@ -33,7 +33,8 @@ public class PostProxyInvokerContextListener implements ApplicationListener<Cont
                     }
                 }
             } catch (Exception e) {
-                e.printStackTrace();
+//                e.printStackTrace();
+                System.out.println("Problem with: " + name + ". Exception: " + e.getMessage());
             }
         }
     }

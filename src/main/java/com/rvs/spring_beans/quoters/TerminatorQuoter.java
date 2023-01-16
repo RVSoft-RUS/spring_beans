@@ -15,13 +15,13 @@ public class TerminatorQuoter implements Quoter {
 
     public TerminatorQuoter() { //Оригинальный java-конструктор
         System.out.println("Phase 1");
-        System.out.println(repeat);
+        System.out.println("repeat = " + repeat);
     }
 
     @PostConstruct //Всегда работает на оригинальные методы, пока прокси еще не накрутились
     public void init() {
         System.out.println("Phase 2");
-        System.out.println(repeat);
+        System.out.println("repeat = " + repeat);
     }
 
     @Value("${msg}")
@@ -33,6 +33,7 @@ public class TerminatorQuoter implements Quoter {
     @PostProxy // Метод вызовется после создания всех прокси
     public String sayQuote() {
         System.out.println("Phase 3");
+        System.out.println("repeat = " + repeat);
         for (int i = 0; i < repeat; i++) {
             System.out.println("message = " + message);
         }
